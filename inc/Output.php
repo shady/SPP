@@ -5,38 +5,35 @@
 **/
 
 Class Output {
-		const class_name = '[Output] ';
+		const class_name = "[Output] ";
 
-		private $show_debug = true;
-		private $log;
+		static $show_debug = true;
+		static $log;
 		
-		
-		function Output()	{
-			$this->d($this->class_name . 'Started logging.');
-		}
-		
-		function d($string) {
-			if ($this->show_debug) {
-				$this->p('[DEBUG:]' . $string);
-				$this->log .= $this->p('[DEBUG:]' . $string);
+		static function d($string) {
+			if (self::$show_debug) {
+				self::p("[DEBUG:]" . $string);
 			}
 		}
 		
-		function p($string) {
-			fwrite(STDOUT, $string . "\n")
-			$this->log .= 
+		static function p($string) {
+			fwrite(STDOUT, $string . "\n");
+			self::$log .= $string . "\n";
 		}
 		
-		function err($string) {
-			fwrite(STDERR, $string . "\n")
+		static function err($string) {
+			fwrite(STDERR, "[ERROR:]" . $string . "\n");
+			self::$log .=  "[ERROR:]" . $string . "\n";
 		}
 		
 		function savelog() {
-		//TODO
+			//TODO
+		}
+		
+		function getLog() {
+			return self::$log;
 		}
 		
 }
 
-function __autoload($class_name) {
-	require_once $class_name . '.php';
-}
+?>
