@@ -18,7 +18,7 @@ Class Settings {
 	}
 	
 	static function load() {
-		Output::p(self::class_name . "settings.xml found, loading..");
+		Output::d(self::class_name . "settings.xml found");
 		self::$settings = self::xml2array(file_get_contents(getcwd() . "/settings.xml"));
 	}
 	
