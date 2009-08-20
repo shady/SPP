@@ -5,14 +5,14 @@
 **/
 
 Class Output {
-		const class_name = 'Output';
+		const class_name = '[Output] ';
 
 		private $show_debug = true;
 		private $log;
 		
 		
 		function Output()	{
-			
+			$this->d($this->class_name . 'Started logging.');
 		}
 		
 		function d($string) {
