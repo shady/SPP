@@ -1,36 +1,74 @@
 <settings>
 	<global>
 		<debug>true</debug>
-		<notify_xbmc>0</notify_xbmc>
-		<xbmc>
+		<log enable="true">SPP.log</log>
+		<mplayer>/usr/bin/mplayer</mplayer>
+	</global>
+	<tv enable="false">
+		<category_names>
+			<cat>tv</cat>
+			<cat>tv_ep</cat>
+			<cat>tv_series</cat>
+		</category_names>
+		<location>/media/storage/media/Tv</location>
+		<parse_info_in_order>
+			<dirname>true</dirname>
+			<filename>true</filename>
+			<nfo>true</nfo>
+			<nfo_filename>true</nfo>
+		<del_files>
+			<del>*.sfv</del>
+			<del>*.md5</del>
+			<del>*.txt</del>
+			<del>*sample*.*</del>
+		</del_files>
+		<make_nfo enable="true">
+			<name_after_video>true</name_after_video>
+			<include_original_nfo>true</include_original_nfo>
+			<include_mediainfo>true</include_mediainfo>
+			<thetvdb enable="true">
+				<include_url>true</include_url>
+				<episode_details enable="false">
+					<title>true</title>
+					<season>true</season>
+					<episode>true</episode>
+					<plot>true</plot>
+					<credits>false</credits>
+					<director>false</director>
+					<aired>true</aired>
+				</episode_details>
+				<include_change_info enable=true>
+					<original_filename>true</original_filename>
+					<original_nfofilename>true</original_nfofilename>
+				</include_change_info>
+			<include_thetvdbinfo>true</include_thetvdbinfo>
+		</make_nfo>
+		<sorting>
+			<parse_string>/%show%/Season %season_nr%/%show% - S%season_nr%E%episode_nr% - %episode_title%.%ext%</parse_string>
+		</sorting>
+	</tv>
+	<transcode enable=true>
+		<
+	<notification>
+		<email enable="false">
+			<smtp>smtp.gmail.com:587</smtp>
+			<tls>yes</tls>
+			<username>shadyatlas</username>
+			<password>atlasserver</password>
+			<to>wernerbuck@gmail.com</to>
+			<from>shadyatlas@gmail.com</from>
+			<from_name>Atlas Server</from_name>
+		</email>
+		<xbmc enable="false">
 			<ip>192.168.0.50</ip>
 		</xbmc>
-	</global>
-	<Anime>
-		<cat_name>anime</name>
-		<location>/media/storage/media/Anime</location>
-		<remove>*.nfo|*.sfv</filter>
-		<anidb_mylist>1</anidb_mylist>
-		<anidb_rename>1</anidb_rename>
-		<anidb>
-			<user>werner</user>
-			<pass>buck</pass>
-			<renamestring>default</renamestring>
-		</anidb>
-		<crc_check>1</crc_check>
-	</Anime>
-	<Tv>
-		<cat_name>tv</name>
-		<location>/media/storage/media/Tv</location>
-		<remove>*.nfo|*.sfv</remove>
-		<sabnzbd_enabled_sorting>0</sabnzbd_enabled_sorting>
-		<enable_own_sorting>1</enable_own_sorting>
-		<sorting>
-			<sorting_parser>%show/Season %season_nr/%original_filename</sorting_parser>
-		</sorting>
-	</Tv>
-	<Email>
-		<to>shady@shadylog.com</to>
-		<from></from>
-	</Email>
+		<xmpp enable="false">
+			<server>talk.google.com</server>
+			<port>5222</port>
+			<username>shadyatlas</username>
+			<password>atlasserver</password>
+			<resource>gmail.com</resource>
+			<tls>true</tls>
+			<to>wernerbuck@gmail.com</to>
+		</xbmc>
 </settings>
