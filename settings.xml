@@ -16,6 +16,7 @@
 			<filename>true</filename>
 			<nfo>true</nfo>
 			<nfo_filename>true</nfo>
+		</parse_info_in_order>
 		<del_files>
 			<del>*.sfv</del>
 			<del>*.md5</del>
